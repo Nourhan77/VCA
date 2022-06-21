@@ -1,0 +1,79 @@
+<odoo>
+    <data>
+    <record id="HMS_patient_form_view" model="ir.ui.view" >
+      <field name="name">HMS patient form view</field>
+      <field name="model">hms.patient</field>
+      <field name="arch" type="xml">
+        <form>
+       <header>
+            <button name ="set_good" string="Set Good" type= "object" 
+              attrs ="{'invisible':[('state','=','G')]}"/>
+            <button name ="set_undetermined" string="Set Undetermined" type= "object" 
+              attrs ="{'invisible':[('state','=','UN')]}"/>
+            <button name ="set_fair" string="Set Fair" type= "object" 
+              attrs ="{'invisible':[('state','=','F')]}"/>
+            <button name ="set_serious" string="Set Serious" type= "object" 
+              attrs ="{'invisible':[('state','=','S')]}"/>
+
+ 
+            <field name="state" widget="statusbar"/>
+          </header>
+          <sheet>
+              <group>
+                  <group>
+                      <field name="First_name"/>
+                      <field name="Last_name"/>
+                      <field name="Birth_date"/>
+                      <field name="Age"/>
+                      <field name="Email"/>
+
+                  </group>
+                  <group>
+      
+                      <field name="CR_Ratio" attrs ="{'required':[('PCR','=',True)]}"/>
+                      <field name="Blood_type"/>
+                      <field name="PCR"/>
+                      <field name="Image"/>
+                      <field name="department_id" domain= "[('Is_opened','=',True)]" />
+                      <field name="department_capacity"/>
+                      <field name="doctors_ids" widget="many2many_tags"
+                        attrs="{'readonly':[('department_id','=',False)]}" />
+
+                </group>
+              </group>
+              <notebook>
+              <page string="history" attrs ="{'invisible':[('Age','&lt;',True)]}" >
+                <field name="History"/>
+              </page>
+              <page string="address">
+                <field name="Address"/>
+              </page>
+              <page string="Log History">
+                <field name="logs_ids"/>
+                  <tree editable="bottom">
+                    <field name="create_uid" readonly="True"/>
+                    <field name="create_date" readonly="True"/>
+                    <field name="description"/>
+                  </tree>
+              </page>
+              </notebook>
+            </sheet>
+        </form>
+      </field>
+    </record>
+
+        <record id="create_patient_action" model="ir.actions.act_window" >
+        <field name="name">CreatePatient</field>
+        <field name="res_model">hms.patient</field>
+        <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem id="root_menu" name ="HMS"/>
+        <menuitem id="create_menu" name ="Create" parent= "root_menu"/>
+        <menuitem id="patient_menu" name ="Patients" parent= "create_menu" action="create_patient_action"/>
+
+     
+        
+    </data>
+</odoo>
