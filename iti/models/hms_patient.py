@@ -1,5 +1,8 @@
 
+
 import re
+from datetime import date, datetime, timedelta
+from dateutil.relativedelta import relativedelta
 
 from odoo import models , fields, api
 from odoo.exceptions import ValidationError
@@ -19,7 +22,7 @@ class HMSPatient (models.Model):
     PCR=fields.Boolean()
     Image=fields.Image()
     Address=fields.Text()
-    Age=fields.Integer(compute="calc_age")
+    Age=fields.Integer()
     department_id=fields.Many2one("hms.department")
     department_capacity=fields.Integer(related="department_id.department_capacity")
     logs_ids=fields.One2many("hms.patient.log","patient_id")
@@ -85,14 +88,31 @@ class HMSPatient (models.Model):
 
 
 
-'''
-    @api.depends("Birth_date")
-    def calc_age(self):
-        
-            if self.Birth_date:
-                diff= fields.Date.today() - self.Birth_date
-                self.Age= diff.days // 365
-'''
+    @api.onchange('Birth_date')
+    def set_age(self):
+        dt = ""
+        print('in')
+        if self.Birth_date:
+            print('if')
+            for rec in self:
+                if rec.Birth_date:
+                    dt = str(rec.Birth_date)
+            d1 = datetime.strptime(dt, "%Y-%m-%d").date()
+            d2 = date.today()
+            print(d2)
+
+            rd = relativedelta(d2, d1)
+            rec.Age = str(rd.years)
+        else:
+            print('Please Enter Date of Birth')
+    # @api.depends("Birth_date")
+    # def calc_age(self):
+    #     if self.Birth_date:
+    #         diff= fields.Date.today() - self.Birth_date
+    #         self.Age= diff.days // 365
+    #     else:
+    #         print("no age")
+
 
 class PatientLog(models.Model):
     _name="hms.patient.log"

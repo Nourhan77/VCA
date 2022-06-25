@@ -36,7 +36,7 @@
                       <field name="Image"/>
                       <field name="department_id" domain= "[('Is_opened','=',True)]" />
                       <field name="department_capacity"/>
-                      <field name="doctors_ids" widget="many2many_tags"
+                      <field name="doctors_ids" widget="many2many_tags" groups="iti.hms_manager_group"
                         attrs="{'readonly':[('department_id','=',False)]}" />
 
                 </group>
@@ -63,15 +63,15 @@
     </record>
 
         <record id="create_patient_action" model="ir.actions.act_window" >
-        <field name="name">CreatePatient</field>
+        <field name="name">Patients</field>
         <field name="res_model">hms.patient</field>
         <field name="view_mode">tree,form</field>
         </record>
 
 
         <menuitem id="root_menu" name ="HMS"/>
-        <menuitem id="create_menu" name ="Create" parent= "root_menu"/>
-        <menuitem id="patient_menu" name ="Patients" parent= "create_menu" action="create_patient_action"/>
+        <menuitem id="patient_menu" name ="Patients" parent= "root_menu" action="create_patient_action"/>
+        <menuitem id="doctor_menu" name ="Doctors" parent= "root_menu" action="create_doctor_action" groups="iti.hms_manager_group"/>
 
      
         

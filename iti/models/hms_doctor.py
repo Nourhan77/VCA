@@ -2,7 +2,7 @@ from odoo import models , fields
 
 class HMSDoctor (models.Model):
     _name="hms.doctor"
-    _description="HMS Lab cont."
+    _description="HMS Doctors"
     
 
     First_name=fields.Char(required=True)

@@ -2,7 +2,7 @@ from odoo import models , fields
 
 class HMSDepartment (models.Model):
     _name="hms.department"
-    _description="HMS Lab cont."
+    _description="HMS Departments"
     
 
 

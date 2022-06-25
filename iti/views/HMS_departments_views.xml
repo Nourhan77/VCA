@@ -8,9 +8,7 @@
         </record>
 
 
-              <menuitem id="department_menu" name ="departments" parent= "create_menu" action="create_department_action"/>
-
-     
+              <menuitem id="department_menu" name ="Departments" parent="root_menu" action="create_department_action"/>
         
     </data>
 </odoo>
