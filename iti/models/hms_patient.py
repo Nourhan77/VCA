@@ -38,7 +38,6 @@ class HMSPatient (models.Model):
 
     def _add_log(self , state):
             self.env["hms.patient.log"].create ( {
-
                 "description": f"State changed to {state}",
                 "patient_id":self.id
             })
@@ -62,14 +61,13 @@ class HMSPatient (models.Model):
 
     
     @api.onchange("Age")
-
     def _onchange_age(self):
         if self.Age and self.Age < 30:
             self.PCR= True
             return {
 
-                "warning":{
-
+                "warning":
+                {
                     "title":"Warning",
                     "message":"PCR field has been checked."
                 }
@@ -105,14 +103,6 @@ class HMSPatient (models.Model):
             rec.Age = str(rd.years)
         else:
             print('Please Enter Date of Birth')
-    # @api.depends("Birth_date")
-    # def calc_age(self):
-    #     if self.Birth_date:
-    #         diff= fields.Date.today() - self.Birth_date
-    #         self.Age= diff.days // 365
-    #     else:
-    #         print("no age")
-
 
 class PatientLog(models.Model):
     _name="hms.patient.log"

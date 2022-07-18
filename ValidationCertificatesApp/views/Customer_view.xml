@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+    
+        <record id="create_customer_action" model="ir.actions.act_window" >
+        <field name="name">Customer</field>
+        <field name="res_model">vca.customers</field>
+        <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="customer_menu" name ="Customers" parent= "root_menu" action="create_customer_action"/>
+
+
+        </data>
+</odoo>

@@ -1,0 +1,69 @@
+<odoo>
+    <data>
+    
+        <record id="create_certificate_action" model="ir.actions.act_window" >
+        <field name="name">Certificate</field>
+        <field name="res_model">vca.cert</field>
+        <field name="view_mode">tree,form</field>
+        </record>
+        <record id="VCA_Certificate_view" model="ir.ui.view" >
+        <field name="name">VCA Certificate form view</field>
+        <field name="model">vca.cert</field>
+        <field name="arch" type="xml">
+        <form>
+        <header>
+        <button type="object" name="print_report" string="Print" class= "oe_highlight" attrs ="{'invisible':[('is_printed','=',True)]}"/>
+        <button type="object" name="reprint_report" string="Allow Reprint" class= "oe_highlight" groups="ValidationCertificatesApp.vca_manager_group"/>
+        <field name="is_printed" groups="ValidationCertificatesApp.vca_manager_group"/>
+
+        </header>
+            <sheet>
+              <group>
+              
+            <field name="serial_number" readonly="1"/>
+            <field name="vehicle_type"/>
+            <field name="Customer_id"/>
+            <field name="price"/>
+            <field name="car_model"/>
+            <field name="brand"/>
+            <field name="traffic_departments"/>
+            <field name="customer_name"/>
+            <field name="Chassis_number"/>
+            <field name="motor_number"/>
+             </group>
+
+
+
+            <notebook>
+             <page string="Print History">
+                <field name="print_ids"/>
+                  <tree editable="bottom">
+                    <field name="create_uid" readonly="True"/>
+                    <field name="create_date" readonly="True"/>
+                    <field name="description"/>
+                  </tree>
+              </page>
+            </notebook>
+          </sheet>
+
+
+              
+
+
+
+
+
+
+
+            </form>
+      </field>
+    </record>
+
+
+        <menuitem id="root_menu" name ="Certificates App"/>
+        <menuitem id="certificate_menu" name ="Certificate" parent= "root_menu" action="create_certificate_action"/>
+        
+    </data>
+
+</odoo>
+

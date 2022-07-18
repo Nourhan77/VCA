@@ -1,0 +1,23 @@
+<odoo>
+    <data noupdate ="1">
+        <record id="vca_security_category" model="ir.module.category">
+            <field name ="name">VCA</field>
+        </record>
+        <record id ="vca_user_group" model="res.groups">
+            <field name ="name">VCA Users</field>
+            <field name ="category_id" ref="vca_security_category"/>
+        </record>
+
+
+        <record id ="vca_manager_group" model="res.groups">
+            <field name ="name">VCA Managers</field>
+            <field name ="category_id" ref="vca_security_category"/>
+            <field name ="implied_id" eval="[(6, ref('vca_user_group'))]" />
+            
+
+        </record>
+
+
+
+    </data>
+</odoo>

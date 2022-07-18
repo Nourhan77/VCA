@@ -1,0 +1,10 @@
+<odoo>
+    <data noupdate ="1">
+        <record id="ValidationCertificatesApp.seq_order" model="ir.sequence">
+                    <field name="name">Sequence Order</field>
+                    <field name="code">vca.cert</field>
+                    <field name="number_next_actual">001</field>
+                    <field name="prefix">TD00</field>
+        </record>
+    </data>
+</odoo>

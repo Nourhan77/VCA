@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+    
+        <record id="create_brand_action" model="ir.actions.act_window" >
+        <field name="name">Brands</field>
+        <field name="res_model">vca.brands</field>
+        <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

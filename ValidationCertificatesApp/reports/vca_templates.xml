@@ -1,0 +1,108 @@
+<odoo>
+    <data>
+        <template id="vca_cert_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="certificate">
+                    <t t-call="web.external_layout">
+                        <div class="page" dir="rtl">
+
+                            <div class="row">
+                                <div class="col-sm-6"  style="text-align:center">
+                                    <h1 style="color : red;" >شهادة صلاحية</h1>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h5>
+                                        <span style="font:weight:bold">تحريرا في:</span>
+                                        <script>
+                                        date = new Date();
+                                        year = date.getFullYear();
+                                        month = date.getMonth() + 1;
+                                        day = date.getDate();
+                                        document.getElementById("current_date").innerHTML = month + "/" + day + "/" + year;
+                                        </script>
+                                    </h5>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <h5>
+                                            <span style="font:weight:bold">السيد اللواء مدير ادارة المرور:</span>
+                                            <span t-out="certificate.traffic_departments"/>
+                                        </h5>
+                                    </div>
+
+                                    <div class="col-sm-6"  style="text-align:center">
+                                        <h5 style="color : black;" >تحية طيبة و بعد ,,,,</h5>
+                                    </div>
+
+
+                                    <div class="col-sm-6">
+                                        <h5>
+                                            <span style="font:weight:bold">اتشرف بافادة حضراتكم بانه تم تعديل/</span>
+                                            <span t-out="certificate.type"/>
+                                        </h5>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <h5>
+                                            <span style="font:weight:bold">ماركة/</span>
+                                            <span t-out="certificate.brand"/>
+                                        </h5>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <h5>
+                                            <span style="font:weight:bold">موديل/</span>
+                                            <span t-out="certificate.car_model"/>
+                                        </h5>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <h5>
+                                            <span style="font:weight:bold">اسم المالك/</span>
+                                            <span t-out="certificate.customer_name"/>
+                                        </h5>
+                                    </div>
+
+
+                                    <div class="col-sm-6">
+                                        <h5>
+                                            <span style="font:weight:bold">رقم الشاسية /</span>
+                                            <span t-out="certificate.Chassis_number"/>
+
+                                        </h5>
+
+                                        <h5>
+                                            <span style="font:weight:bold">رقم المحرك/</span>
+                                            <span t-out="certificate.motor_number"/>
+                                        </h5>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <h5>
+                                            <span style="font:weight:bold">حيث أن المؤسسة معتمدة بالهيئة العامة للتنمية الصناعية ومصلحة الرقابة الصناعية ومعتمدة بإدارات المرور ولها سجل تجاري صناعي وبطاقة ضريبية بهذه الصفة وقد تم فحص التعديل والتركيب واللحامات والإصلاحات اللازمة طبقا لأصول الصناعة ودون الإخلال بالتصميم الأصلي ودون المساس بالأجزاء الجوهرية للسيارة وقد تم تجربة السيارة على الطرق المصرية ووجد أنها متزنة وهذه شهادة منا بذلك لتقديمها للمرور والمالك مسؤول مسئولية كاملة عن بيانات الشهادة فبرجاء التكرم والتفضل بالموافقة على ترخيص السيارة</span>
+                                        </h5>
+
+
+                            
+
+
+</div>            
+                                    </div>
+
+                                    <div class="col-sm-6"  style="text-align:center">
+                                        <h5>
+                                            <span style="font:weight:bold">و تفضلوا بقبول فائق الاحترام و التقدير,,,,</span>
+                                        </h5>
+                                    </div>
+                        </div>
+
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

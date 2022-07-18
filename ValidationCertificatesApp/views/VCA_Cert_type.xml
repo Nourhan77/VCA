@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+    
+        <record id="create_cert_type_action" model="ir.actions.act_window" >
+        <field name="name">Certificate Types</field>
+        <field name="res_model">vca.cert_types</field>
+        <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <record id="VCA_Certificate_type_view" model="ir.ui.view" >
+        <field name="name">VCA Certificate Types form view</field>
+        <field name="model">vca.cert_types</field>
+        <field name="arch" type="xml">
+        <form>
+            <sheet>
+              <group>
+                <field name="cert_type"/>
+                <field name="cert_id"/>
+               </group>
+              </sheet>
+            </form>
+      </field>
+    </record>
+
+        
+        <menuitem id="cert_type_menu" name ="Certificate Types" parent= "root_menu" action="create_cert_type_action"/>
+
+
+        </data>
+</odoo>

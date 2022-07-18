@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+    
+        <record id="create_traffic_dep_action" model="ir.actions.act_window" >
+        <field name="name">Traffic Department</field>
+        <field name="res_model">vca.traffic_dep</field>
+        <field name="view_mode">tree,form</field>
+        </record>
+
+        
+        <menuitem id="traffic_dep_menu" name ="Traffic Department" parent= "root_menu" action="create_traffic_dep_action"/>
+
+
+        </data>
+</odoo>
+
+

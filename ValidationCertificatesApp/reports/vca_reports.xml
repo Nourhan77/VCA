@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+        <record id="vca_cert_report_action" model="ir.actions.report" >
+            
+            <field name="name">ValidationCertificate</field>
+            <field name="model">vca.cert</field>
+            <field name="report_name">ValidationCertificatesApp.vca_cert_template</field>
+            <field name="binding_model_id" ref="model_vca_cert"/>
+
+        </record>
+    </data>
+</odoo>

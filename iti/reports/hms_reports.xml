@@ -1,6 +1,6 @@
 <odoo>
     <data>
-        <record id="hms_patient_report_action" model="ir.actions.report">
+        <record id="hms_patient_report_action" model="ir.actions.report"  >
             
             <field name="name">Patient Card</field>
             <field name="model">hms.patient</field>
